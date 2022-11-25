@@ -15,7 +15,7 @@ const Pokedex = () => {
   const navigate = useNavigate()
 
   useEffect(()=>{
-    axios.get('https://pokeapi.co/api/v2/pokemon/')
+    axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1154/')
       .then(res => setPokemon(res.data.results))
 
     axios.get('https://pokeapi.co/api/v2/type/')

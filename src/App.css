@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
 }
-
+/* body{
+  width: 100vw;
+} */
 .InputName {
   background: url(assets/pexels-photo-1310847.webp);
   background-position: center;
