@@ -22,38 +22,40 @@ const Pokedex = () => {
       .then(res=>setLocations(res.data.results))
   }, [])
 
-  console.log(locations);
-
   const searchCharacter = () =>{
     navigate(`/Pokedex/${searchWrite.toLowerCase()}`)
   }
 
   const filterType = (e) =>{
-    axios.get(`${e.target.value}`)
+    const url = e.target.value
+    axios.get(url)
       .then(res => setPokemon(res.data.pokemon))
   }
 
+  console.log(locations)
   return (
     <div className='Pokedex'>
-      <p>Welcome {userName}!</p>
       <div>
-        <input type="text" value={searchWrite} onChange={e => setSearchWrite(e.target.value)} placeholder='search character'/>
-        <button onClick={searchCharacter}>Search</button>
-        <select onChange={filterType} name="" id="">
-          {locations.map(location=>(
-            <option 
-              value={location.url} 
-              key={location.name} 
-            > {location.name}
-            </option>
-          ))}
-        </select>
+        <p className='welcome'>Welcome {userName}!</p>
+        <div id='Search'>
+          <input type="text" value={searchWrite} onChange={e => setSearchWrite(e.target.value)} placeholder='search character'/>
+          <button onClick={searchCharacter}>🔍</button>
+          <select onChange={filterType} name="" id="">
+            {locations.map(location=>(
+              <option
+                value={location.url} 
+                key={location.name} 
+              > {location.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <ul>
         {pokemon?.map(element => (
           <PokedexCards
-            url={element.url ? element.url : element}
-            key={element.url ? element.url : element}
+            url={element.url ? element.url : element.pokemon.url}
+            key={element.url ? element.url : element.pokemon.url}
           />
         ))}
       </ul>

@@ -13,11 +13,29 @@ const PokedexDetails = () => {
       .then(res => setSinglePokemon(res.data))
   }, [])
 
-  console.log(singlePokemon)
   return (
     <div className='PokedexDetails'>
-      <h1>{singlePokemon.name}</h1>
-      <img src={singlePokemon.sprites?.other.home?.front_default} alt="img" />
+      <div>
+        <h1>{singlePokemon.name}</h1>
+        <img src={singlePokemon.sprites?.other.home?.front_default} alt="img" />
+        <div>
+          <p><strong>height: </strong>{singlePokemon.height}</p>
+          <p><strong>weight: </strong>{singlePokemon.weight}</p>
+          <p><strong>base XP: </strong>{singlePokemon.base_experience}</p>
+        </div>
+        <ul id='types'>
+          {singlePokemon.types?.map(type =>( 
+            <li key={type.type.name}>{type.type.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div id='pokemonMove'>
+        <h2>Move</h2>
+        <ul>
+          {singlePokemon.moves?.map(move => <li key={move.move.name}>{move.move.name}</li>)}
+        </ul>
+      </div>
     </div>
   );
 };

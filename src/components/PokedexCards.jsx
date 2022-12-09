@@ -12,21 +12,19 @@ const PokedexCards = ({url}) => {
       .then(res=> setForEachPokemon(res.data))
   }, [])
 
-  console.log(forEachPokemon)
   return (
     <Link to={`/Pokedex/${forEachPokemon.id}`} className='PokedexCards'>
-        <p>
-          <strong>name:</strong> 
-          {forEachPokemon.name}
-        </p>
         <div className='container-card'>
-          <img src={forEachPokemon.sprites?.front_default} alt="image" />
+          <img src={forEachPokemon.sprites?.other.home?.front_default} alt="image" />
+          <p>
+            <strong className='title'>{forEachPokemon.name}</strong>          
+          </p>
           <div className='infoPokemon'>
-            <p>
+            <p className='correction'>
               <strong>Types:</strong> 
               {forEachPokemon.types?.length === 1 
                 ? forEachPokemon.types[0].type.name 
-                : (forEachPokemon.types?.map(element => (<p>{element.type.name}</p>)))}
+                : (forEachPokemon.types?.map(element => (<p>{element.type.name},</p>)))}
             </p>
             <p>
               <strong>Hp:</strong> 
