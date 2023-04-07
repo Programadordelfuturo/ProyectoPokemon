@@ -32,6 +32,13 @@ const Pokedex = () => {
       .then(res => setPokemon(res.data.pokemon))
   }
 
+  const [ page, setPage ] = useState(1)
+  const pokemonPerPage = 9
+  const finalIndex = page*pokemonPerPage
+  const firstIndex = (page - 1)*pokemonPerPage;
+  
+  const paginated = pokemon?.slice(firstIndex, finalIndex);
+
   console.log(locations)
   return (
     <div className='Pokedex'>
@@ -51,8 +58,13 @@ const Pokedex = () => {
           </select>
         </div>
       </div>
+      <div id='paginated'>
+        <button onClick={() => setPage(page - 1)} disabled={page==1}>Previus Page</button>
+        <button onClick={() => setPage(page + 1)}>Next Page</button>
+        <button onClick={() => setPage(1)}>Inicial Page</button>
+      </div>
       <ul>
-        {pokemon?.map(element => (
+        {paginated?.map(element => (
           <PokedexCards
             url={element.url ? element.url : element.pokemon.url}
             key={element.url ? element.url : element.pokemon.url}

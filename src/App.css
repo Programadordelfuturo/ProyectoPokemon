@@ -27,7 +27,6 @@
 
 .InputName input:hover{
   border: 3px solid red;
-  
 }
 
 .InputName button{
@@ -48,8 +47,8 @@
 }
 
 .Pokedex {
-  background: rgb(10, 200, 200);
-  background-repeat: repeat;
+  background: url(./assets/fund2.png);
+  background-size: cover;
   height: 100%;
   width: 98.72vw;
   padding: 30px 0px;
@@ -65,12 +64,22 @@
   font-size: 44px;
 }
 
+#Search {
+
+}
+
 #Search input {
   margin: 70px 0px 30px 0px;
-  width: 700px;
-  height: 35px;
+  width: 27em;
+  height: 3em;
   outline: none;
   border: 3px solid transparent;
+}
+
+@media( max-width: 630px) {
+  #Search input {
+    width: 11.5em;
+  }
 }
 
 #Search input:hover {
@@ -81,17 +90,51 @@
 #Search button {
   outline: none;
   margin: 0px 20px;
+  width: 5em;
+  height: 3em;
 }
 
-#Search button:hover {
-  border-radius: 20%;
+#Search button:active {
+  background: rgb(63, 255, 63);
 }
 
 #Search select {
-  height: 30px;
-  width: 70px;
+  height: 3em;
+  width: 6em;
   outline: none;
-  border: 3px solid green;
+  border: 3px solid transparent;
+}
+
+#Search select:hover {
+  border: 3px solid rgb(255, 251, 0);
+  background: rgb(248, 248, 175);
+}
+
+#paginated {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+#paginated button {
+  display: grid;
+  place-content: center;
+  width: 7em;
+  height: 3em;
+  outline: none;
+}
+
+#paginated button:nth-child(1) {
+  background: linear-gradient(45deg, green, blue);
+}
+
+#paginated button:nth-child(2) {
+  background: linear-gradient(45deg, yellow, red);
+}
+
+#paginated button:nth-child(3) {
+  background: linear-gradient(45deg, white, gray);
 }
 
 .Pokedex ul {
@@ -116,23 +159,24 @@
 
 .PokedexCards {
   border-radius: 15px;
-  padding: 15px;
-  color: rgb(236, 255, 67);
+  padding: 25px;
+  color: rgb(238, 3, 207);
   margin: 24px;
   transition: all 0.1s;
   width: 100%;
   border: 4px solid transparent;
+/* }
+
+
+.PokedexCards:hover { */
+  background: rgba(253, 253, 253, 0.6);
+  border: 4px solid black;
+  box-shadow: 3px 3px 20px 0px black;
 }
 
 .title {
   color: rgb(0, 0, 0);
   font-size: 21px;
-}
-
-.PokedexCards:hover {
-  background: rgb(253, 253, 253);
-  border: 4px solid black;
-  box-shadow: 3px 3px 20px 0px black;
 }
 
 .container-card {
@@ -158,6 +202,10 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.infoPokemon {
+  border-top: 3px solid black;
+}
+
 .infoPokemon > p {
   margin: 4px 0px;
   padding: 3px 1.5px;
@@ -165,13 +213,14 @@
 }
 
 .PokedexDetails {
-  background: url(assets/anime-pokemon-1.png);
-  background-size: cover;
-  width: 100vw;
   display: flex;
   justify-content: space-evenly;
-  padding: 20px 40px;
   align-items: center;
+  background: url(assets/fund3.png);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px 40px;
   overflow-y: hidden;
 }
 
@@ -183,20 +232,40 @@
   height: 400px;
 }
 
-.PokedexDetails div div{
-  display: flex;
-  justify-content: space-between;
+.PokedexDetails div span {
+  display: flex
+}
+
+.PokedexDetails div div {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
 }
 
 .PokedexDetails div div p{
   padding: 10px;
-  border: 3px solid black;
-  border-radius: 20%;
+  border-bottom: 3px solid black;
+}
+
+#pokemonMove, #pokemonMove ul li, #pokemonMove input {
+  display: grid;
+  place-items: center;
+}
+
+#pokemonMove {
+  gap: 20px
+}
+
+#pokemonMove input{
+  height: 2em;
+  width: 3em;
+  outline: none;
+  border: 3px groove rgb(252, 51, 51);
 }
 
 #pokemonMove ul {
-  width: 550px;
-  height: 535px;
+  width: 23em;
+  height: 20em;
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -214,6 +283,10 @@
   padding: 7px;
 }
 
+#pokemonMove ul li {
+  border-radius: 5%;
+}
+
 #types {
   display: flex;
   justify-content: space-evenly;
@@ -222,5 +295,94 @@
 
 #types li {
   width: 70px;
-  border-radius: 10%;
+  border: none;
 }
+
+.normal, .fighting, .flying, .poison, .ground, .rock, .bug, .ghost, .steel, .fire, .water, .grass, .electric, .psychic, .ice, .dragon, .dark, .fairy, .unknown, .shadow {
+  border: 4px solid black;
+  border-radius: 15%;
+}
+
+.normal {
+  background: white;
+}
+
+.fighting {
+  background: rgb(172, 86, 86);
+}
+
+.flying {
+  background: rgb(168, 217, 236);
+}
+
+.poison {
+  background: rgb(167, 29, 167);
+}
+
+.ground {
+  background: rgb(199, 85, 9);
+}
+
+.rock {
+  background: rgb(110, 103, 103);
+}
+
+.bug {
+  background: rgb(190, 40, 40);
+}
+
+.ghost {
+  background: rgb(216, 215, 215);
+}
+
+.steel {
+  background: rgb(175, 175, 175);
+}
+
+.fire {
+  background: rgb(224, 10, 10);
+}
+
+.water {
+  background: rgb(90, 90, 248);
+  /* font-size: 22px; */
+}
+
+.grass {
+  background: rgb(50, 255, 50);
+}
+
+.electric {
+  background: rgb(255, 255, 24);
+}
+
+.psychic {
+  background: rgb(107, 0, 107);
+}
+
+.ice {
+  background: rgb(0, 183, 255)
+}
+
+.dragon {
+  background: linear-gradient(45deg, yellow, red);
+}
+
+.dark {
+  background: black;
+  color: white;
+  border: 2px solid white;
+}
+
+.fairy {
+  background: linear-gradient(45deg, pink, white);
+}
+
+.unknown {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.shadow {
+  background: linear-gradient(45deg, rgb(190, 186, 186), white);  
+}
+
