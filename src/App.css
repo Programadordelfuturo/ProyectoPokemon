@@ -4,20 +4,41 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  background: transparent;
+  width: 28px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, rgb(0, 102, 255), rgb(31, 248, 255), rgb(34, 255, 34));
+  border-radius: 20px;
+}
+
+button {
+  overflow: hidden;
+}
+
 .InputName {
   background: url(assets/pexels-photo-1310847.webp);
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
-  display: grid;
-  place-content: center;
+  height: 100vh;
   font-size: 18px;
+  gap: 10px;
   color: white;
 }
 
+.InputName strong {
+  text-align: center;
+}
+
 .InputName input{
-  width: 370px;
+  width: 20em;
   height: 30px;
   border: 3px solid transparent;
   border-radius: 5px;
@@ -30,7 +51,6 @@
 }
 
 .InputName button{
-  margin: 9px 9px 9px 100px;
   border: 3px solid transparent;
   outline: none;
   transition: all 0.1s;
@@ -62,10 +82,6 @@
 
 .welcome {
   font-size: 44px;
-}
-
-#Search {
-
 }
 
 #Search input {
@@ -165,10 +181,6 @@
   transition: all 0.1s;
   width: 100%;
   border: 4px solid transparent;
-/* }
-
-
-.PokedexCards:hover { */
   background: rgba(253, 253, 253, 0.6);
   border: 4px solid black;
   box-shadow: 3px 3px 20px 0px black;
@@ -212,37 +224,40 @@
   border-radius: 20%;
 }
 
-.PokedexDetails {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+#PokedexDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
   background: url(assets/fund3.png);
   background-size: cover;
-  width: 100vw;
   height: 100vh;
-  padding: 20px 40px;
-  overflow-y: hidden;
+  width: 100vw;
 }
 
-.PokedexDetails li {
+#pokemonImage {
+  display: grid;
+  place-items: center;
+}
+
+#pokemonImage li {
   list-style: none;
 }
 
-.PokedexDetails img {
+#pokemonImage img {
   height: 400px;
 }
 
-.PokedexDetails div span {
+#pokemonImage span {
   display: flex
 }
 
-.PokedexDetails div div {
+#pokemonImage div {
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
 }
 
-.PokedexDetails div div p{
+#pokemonImage div p{
   padding: 10px;
   border-bottom: 3px solid black;
 }
@@ -294,8 +309,25 @@
 }
 
 #types li {
+  margin: 0 10px;
   width: 70px;
   border: none;
+}
+
+@media (max-width: 1040px){
+  #PokedexDetails {
+    grid-template-columns: 1fr;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #pokemonImage, #pokemonMove {
+    margin: 40px 0
+  }
+
+  #pokemonImage span {
+    display: grid;
+  }
 }
 
 .normal, .fighting, .flying, .poison, .ground, .rock, .bug, .ghost, .steel, .fire, .water, .grass, .electric, .psychic, .ice, .dragon, .dark, .fairy, .unknown, .shadow {

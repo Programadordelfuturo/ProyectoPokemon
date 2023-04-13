@@ -17,7 +17,7 @@ const InputName = () => {
 
   return (
     <div className='InputName'>
-      <p><strong>Registra tu nombre aquí, Campeon pokemon</strong></p>
+      <strong>Registra tu nombre aquí, Campeon pokemon</strong>
       <input type="text" value={inputName} onChange={e => SetInputName(e.target.value)}/>
       <button onClick={enterName}>
         Submit

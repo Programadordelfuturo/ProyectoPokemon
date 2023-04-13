@@ -16,14 +16,7 @@ const PokedexDetails = () => {
         setSinglePokemon(res.data)
       })
   }, [])
-
-  type.forEach(e => {
-    switch (e) {
-      case 'grass':
-        return 
-    }
-  })
-    
+      
   
   const [ hability, setHability ] = useState(1)
   const pokemonPerHability = 9
@@ -33,8 +26,8 @@ const PokedexDetails = () => {
   const paginated = singlePokemon.moves?.slice(firstIndex, finalIndex);
 
   return (
-    <div className='PokedexDetails'>
-      <div>
+    <div id='PokedexDetails'>
+      <div id='pokemonImage'>
         <h1>{singlePokemon.name}</h1>
         <span>
           <img src={singlePokemon.sprites?.other.home?.front_default} alt="img" />
