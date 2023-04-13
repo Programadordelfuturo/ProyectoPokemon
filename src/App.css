@@ -232,6 +232,7 @@ button {
   background-size: cover;
   height: 100vh;
   width: 100vw;
+  margin: auto;
 }
 
 #pokemonImage {
@@ -257,14 +258,21 @@ button {
   place-items: center;
 }
 
-#pokemonImage div p{
+#pokemonImage div p {
   padding: 10px;
-  border-bottom: 3px solid black;
+  border: 5px groove black;
+  width: 140px;
+  margin: 10px 0
+}
+
+#pokemonImage div p:hover{
+  background: rgba(255, 255, 255, 0.7);
 }
 
 #pokemonMove, #pokemonMove ul li, #pokemonMove input {
   display: grid;
   place-items: center;
+  text-align: center;
 }
 
 #pokemonMove {
@@ -300,6 +308,12 @@ button {
 
 #pokemonMove ul li {
   border-radius: 5%;
+  transition: all .3s ease-in-out;
+}
+
+#pokemonMove ul li:hover {
+  transform: scale(0.95);
+  font-variant: small-caps;
 }
 
 #types {

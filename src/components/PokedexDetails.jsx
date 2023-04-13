@@ -16,6 +16,8 @@ const PokedexDetails = () => {
         setSinglePokemon(res.data)
       })
   }, [])
+
+  console.log(singlePokemon)
       
   
   const [ hability, setHability ] = useState(1)
